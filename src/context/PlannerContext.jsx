@@ -59,6 +59,15 @@ const PlannerProvider = ({ children }) => {
     dispatch({ type: 'delete', payload: { id } });
   };
 
+  const updateEntry = (entry) => {
+    const payload = {
+      ...entry,
+      //date: parseDate(entry.date),
+    };
+    dispatch({ type: 'update', payload });
+    return payload;
+  };
+
   return (
     <PlannerContext.Provider
       value={{
@@ -66,6 +75,7 @@ const PlannerProvider = ({ children }) => {
         addEntry,
         getEntry,
         deleteEntry,
+        updateEntry,
       }}
     >
       {children}
